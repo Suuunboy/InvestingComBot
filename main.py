@@ -38,7 +38,7 @@ async def on_ready():
 async def send_news():
     print('started')
     now_time = datetime.now(timezone('America/Vancouver'))
-    if now_time.hour == 19:
+    if now_time.hour == 3:
         print('passed')
         chanel = client.get_channel(1152910423134306304)
         print(datetime.now(timezone('America/Vancouver')))

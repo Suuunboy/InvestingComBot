@@ -33,40 +33,79 @@ def scrap():
 
     driver.execute_script('scrollBy(0,300)')
 
-    driver.find_element(By.XPATH, '//*[@id="timeFrame_tomorrow"]').click()
+    button = driver.find_element(By.XPATH, '//*[@id="timeFrame_tomorrow"]')
+    driver.execute_script("arguments[0].click();", button)
+
     time.sleep(5)
 
-    driver.find_element(By.XPATH, '//*[@id="economicCurrentTime"]').click()
-    driver.find_element(By.XPATH, '//*[@id="liTz5"]').click()
+    button = driver.find_element(By.XPATH, '//*[@id="economicCurrentTime"]')
+    driver.execute_script("arguments[0].click();", button)
+
+    button = driver.find_element(By.XPATH, '//*[@id="liTz5"]')
+    driver.execute_script("arguments[0].click();", button)
     time.sleep(10)
-    driver.find_element(By.LINK_TEXT, 'Filters').click()
+
+    button = driver.find_element(By.LINK_TEXT, 'Filters')
+    driver.execute_script("arguments[0].click();", button)
     time.sleep(2)
-    driver.find_element(By.XPATH, '//*[@id="calendarFilterBox_country"]/div[1]/a[2]').click()
+
+    button = driver.find_element(By.XPATH, '//*[@id="calendarFilterBox_country"]/div[1]/a[2]')
+    driver.execute_script("arguments[0].click();", button)
 
     time.sleep(1)
-    driver.find_element(By.XPATH, '//*[@id="country6"]').click()
-    driver.find_element(By.XPATH, '//*[@id="country72"]').click()
-    driver.find_element(By.XPATH, '//*[@id="country22"]').click()
-    driver.find_element(By.XPATH, '//*[@id="country35"]').click()
-    driver.find_element(By.XPATH, '//*[@id="country12"]').click()
-    driver.find_element(By.XPATH, '//*[@id="country5"]').click()
+    #driver.find_element(By.XPATH, '//*[@id="country6"]').click()
+    button = driver.find_element(By.XPATH, '//*[@id="country6"]')
+    driver.execute_script("arguments[0].click();", button)
+    #driver.find_element(By.XPATH, '//*[@id="country72"]').click()
+    button = driver.find_element(By.XPATH, '//*[@id="country72"]')
+    driver.execute_script("arguments[0].click();", button)
+    #driver.find_element(By.XPATH, '//*[@id="country22"]').click()
+    button = driver.find_element(By.XPATH, '//*[@id="country22"]')
+    driver.execute_script("arguments[0].click();", button)
+    #driver.find_element(By.XPATH, '//*[@id="country35"]').click()
+    button = driver.find_element(By.XPATH, '//*[@id="country35"]')
+    driver.execute_script("arguments[0].click();", button)
+    #driver.find_element(By.XPATH, '//*[@id="country12"]').click()
+    button = driver.find_element(By.XPATH, '//*[@id="country12"]')
+    driver.execute_script("arguments[0].click();", button)
+    #driver.find_element(By.XPATH, '//*[@id="country5"]').click()
+    button = driver.find_element(By.XPATH, '//*[@id="country5"]')
+    driver.execute_script("arguments[0].click();", button)
     time.sleep(2)
     driver.execute_script('scrollBy(0,-400)')
-    driver.find_element(By.XPATH, '//*[@id="country25"]').click()
-    driver.find_element(By.XPATH, '//*[@id="country37"]').click()
-    driver.find_element(By.XPATH, '//*[@id="country17"]').click()
-    driver.find_element(By.XPATH, '//*[@id="country4"]').click()
+    #driver.find_element(By.XPATH, '//*[@id="country25"]').click()
+    button = driver.find_element(By.XPATH, '//*[@id="country25"]')
+    driver.execute_script("arguments[0].click();", button)
+    #driver.find_element(By.XPATH, '//*[@id="country37"]').click()
+    button = driver.find_element(By.XPATH, '//*[@id="country37"]')
+    driver.execute_script("arguments[0].click();", button)
+    #driver.find_element(By.XPATH, '//*[@id="country17"]').click()
+    button = driver.find_element(By.XPATH, '//*[@id="country17"]')
+    driver.execute_script("arguments[0].click();", button)
+    #driver.find_element(By.XPATH, '//*[@id="country4"]').click()
+    button = driver.find_element(By.XPATH, '//*[@id="country4"]')
+    driver.execute_script("arguments[0].click();", button)
     driver.execute_script('scrollBy(0,400)')
 
     time.sleep(5)
 
-    driver.find_element(By.XPATH, '//*[@id="category_employment"]').click()
-    driver.find_element(By.XPATH, '//*[@id="category_economicActivity"]').click()
-    driver.find_element(By.XPATH, '//*[@id="category_centralBanks"]').click()
-    driver.find_element(By.XPATH, '//*[@id="category_inflation"]').click()
+    #driver.find_element(By.XPATH, '//*[@id="category_employment"]').click()
+    button = driver.find_element(By.XPATH, '//*[@id="category_employment"]')
+    driver.execute_script("arguments[0].click();", button)
+    #driver.find_element(By.XPATH, '//*[@id="category_economicActivity"]').click()
+    button = driver.find_element(By.XPATH, '//*[@id="category_economicActivity"]')
+    driver.execute_script("arguments[0].click();", button)
+    #driver.find_element(By.XPATH, '//*[@id="category_centralBanks"]').click()
+    button = driver.find_element(By.XPATH, '//*[@id="category_centralBanks"]')
+    driver.execute_script("arguments[0].click();", button)
+    #driver.find_element(By.XPATH, '//*[@id="category_inflation"]').click()
+    button = driver.find_element(By.XPATH, '//*[@id="category_inflation"]')
+    driver.execute_script("arguments[0].click();", button)
 
     time.sleep(5)
-    driver.find_element(By.XPATH, '//*[@id="ecSubmitButton"]').click()
+    #driver.find_element(By.XPATH, '//*[@id="ecSubmitButton"]').click()
+    button = driver.find_element(By.XPATH, '//*[@id="ecSubmitButton"]')
+    driver.execute_script("arguments[0].click();", button)
     time.sleep(3)
     driver.execute_script('scrollBy(0,-1000)')
     time.sleep(10)
@@ -83,7 +122,7 @@ def scrap():
         if t:
             value_list.append(t)
 
-    print(value_list)
+    #print(value_list)
 
     result_list = []
 
@@ -91,9 +130,5 @@ def scrap():
         result_list.append([value_list[i][2], value_list[i][0], value_list[i][1]])
 
     driver.quit()
-    print(result_list)
+    #print(result_list)
     return result_list
-
-
-
-
