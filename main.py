@@ -14,6 +14,7 @@ from discord.ext import tasks
 
 fmt = "%H:%M"
 fmt2 = "%m-%d"
+FN_CHANNEL = 1152668967157104755
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -38,9 +39,9 @@ async def on_ready():
 async def send_news():
     print('started')
     now_time = datetime.now(timezone('America/Vancouver'))
-    if now_time.hour == 3:
+    if now_time.hour == 19:
         print('passed')
-        chanel = client.get_channel(1152910423134306304)
+        chanel = client.get_channel(FN_CHANNEL)
         print(datetime.now(timezone('America/Vancouver')))
         res = await run_blocking(scrap)
         print(res)
@@ -59,18 +60,28 @@ async def send_news():
 @commands.has_permissions(administrator=True)
 @client.command()
 async def start(ctx):
-    if ctx.channel.id != 1152910423134306304:
+    if ctx.channel.id != FN_CHANNEL:
         return
     send_news.start()
+    await ctx.send('Started!')
 
 
 @commands.has_permissions(administrator=True)
 @client.command()
 async def stop(ctx):
-    if ctx.channel.id != 1152910423134306304:
+    if ctx.channel.id != FN_CHANNEL:
         return
     print('Stopped')
     send_news.stop()
+    await ctx.send('Stopped!')
+
+@commands.has_permissions(administrator=True)
+@client.command()
+async def inf(ctx):
+    if ctx.channel.id != FN_CHANNEL:
+        return
+    await ctx.send('!start - start bot, the news will come every day at 19:00 (Pacific Time)')
+    await ctx.send('!stop - stop bot')
 
 
 client.run('MTE1ODg2NDQ1NDE1OTcxNjM2Mg.GAV0pd.XW_18dMm6CsLnWLMudrAhcciR8ve5FsP1-QFmQ')
