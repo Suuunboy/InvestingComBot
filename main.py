@@ -15,6 +15,7 @@ from discord.ext import tasks
 fmt = "%H:%M"
 fmt2 = "%m-%d"
 FN_CHANNEL = 1152668967157104755
+LOG_CHANNEL = 1161018317025329204
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -62,8 +63,9 @@ async def send_news():
 async def start(ctx):
     if ctx.channel.id != FN_CHANNEL:
         return
+    chanel = client.get_channel(LOG_CHANNEL)
+    await chanel.send('Started!')
     send_news.start()
-    await ctx.send('Started!')
 
 
 @commands.has_permissions(administrator=True)
@@ -72,8 +74,9 @@ async def stop(ctx):
     if ctx.channel.id != FN_CHANNEL:
         return
     print('Stopped')
+    chanel = client.get_channel(LOG_CHANNEL)
+    await chanel.send('Stopped!')
     send_news.stop()
-    await ctx.send('Stopped!')
 
 @commands.has_permissions(administrator=True)
 @client.command()
