@@ -127,7 +127,10 @@ def scrap():
     result_list = []
 
     for i in range(1, len(value_list)):
-        result_list.append([value_list[i][2], value_list[i][0], value_list[i][1]])
+        try:
+            result_list.append([value_list[i][2], value_list[i][0], value_list[i][1]])
+        except IndexError:
+            result_list.append([value_list[i][1], value_list[i][0], 'unknown'])
 
     driver.quit()
     #print(result_list)
