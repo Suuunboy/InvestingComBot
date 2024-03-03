@@ -1,15 +1,10 @@
-import re
 import typing
-
 import discord
 from discord.ext import commands
-import asyncio
 from investing_scraper import scrap
 import functools
 from datetime import datetime
-from datetime import timedelta
 from pytz import timezone
-import asyncio
 from discord.ext import tasks
 
 fmt = "%H:%M"
@@ -86,5 +81,6 @@ async def inf(ctx):
     await ctx.send('!start - start bot, the news will come every day at 19:00 (Pacific Time)')
     await ctx.send('!stop - stop bot')
 
-
-client.run('MTE1ODg2NDQ1NDE1OTcxNjM2Mg.GAV0pd.XW_18dMm6CsLnWLMudrAhcciR8ve5FsP1-QFmQ')
+with open('token', 'r') as file:
+    token = file.read()
+client.run(token)
